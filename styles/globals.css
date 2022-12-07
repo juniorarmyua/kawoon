@@ -1,26 +1,19 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "e-Ukraine Light";
+    src: url("../fonts/e-Ukraine-Light.otf");
+}
+@font-face {
+    font-family: "e-UkraineHead Regular";
+    src: url("../fonts/e-UkraineHead-Regular.otf")
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+html {
+    font-family: "e-Ukraine Light"
 }
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.logo {
+    font-family: "e-UkraineHead Regular"
 }
