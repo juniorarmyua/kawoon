@@ -17,7 +17,7 @@ export default function Header() {
                     <Image alt="" src={require('../public/logo.svg')} width={32} height={32} />
                     <h1 className="hidden lg:block logo text-[24px] self-center">Kaw<span className="text-[#52B02B]">o</span><span className="text-[#FF3E59]">o</span>n</h1>
                 </a>
-                <input placeholder="Пошук" id="searchInput" className="bg-zinc-100 dark:bg-zinc-800 placeholder-zinc-600 dark:placeholder-zinc-400 text-center py-2 px-2 lg:px-[50%] rounded-2xl lg:ml-12" onKeyDown={(key) => {
+                <input placeholder="Пошук" id="searchInput" className="bg-zinc-100 dark:bg-zinc-800 placeholder-zinc-600 dark:placeholder-zinc-400 py-2 rounded-2xl px-4 lg:ml-8 w-[16rem] lg:w-[32rem]" onKeyDown={(key) => {
                     if (key.key == "Enter") search()
                 }} />
                 <button className="p-2 rounded-2xl bg-zinc-100 dark:bg-zinc-800" onClick={search} >
