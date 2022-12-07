@@ -1,58 +1,31 @@
-import { XIcon, MicrophoneIcon, SearchIcon } from "@heroicons/react/solid"
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { useState } from "react"
-import HeaderOptions from "./HeaderOptions"
 
 export default function Header() {
-  const router = useRouter()
-  const [searchInput, setSearchInput] = useState(router.query.term)
 
-  function search(e) {
-    e.preventDefault()
-    if (!searchInput) return
-    router.push(`/search?term=${searchInput}`)
-  }
+    const router = useRouter()
 
-  return (
-    <header className="sticky top-0 bg-white dark:bg-primary-dark dark:text-white font-sans">
-      <div className="flex w-full p-6 items-center justify-between">
-        <div className="flex items-center flex-col sm:flex-row w-full ">
-          <Image
-            src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c51f.png"
-            height={40}
-            width={120}
-            className="cursor-pointer"
-            onClick={() => router.push("/")}
-            alt="Google"
-          />
-
-          <form className="flex w-full px-6 py-3 mt-5 sm:mt-0 sm:ml-10 sm:mr-5 border-gray-200 rounded-full shadow-md max-w-3xl flex-grow items-center dark:bg-secondary-dark">
-            <input
-              type="text"
-              // ref={searchInputRef}
-              value={searchInput}
-              onChange={(e) => setSearchInput(e.target.value)}
-              placeholder="Search..."
-              className="flex-grow w-full focus:outline-none dark:bg-secondary-dark"
-            />
-
-            {searchInput && (
-              <XIcon
-                className="h-6 sm:mr-3 text-gray-500 cursor-pointer transition duration-100 transform hover:scale-110"
-                onClick={() => setSearchInput("")}
-              />
-            )}
-
-            <MicrophoneIcon className="mr-3 h-6 hidden sm:inline-flex text-blue-500 border-l-2 pl-4 border-gray-400 cursor-pointer" />
-
-            <button type="submit" onClick={search}>
-              <SearchIcon className="h-6 text-blue-500 pl-2 cursor-pointer" />
-            </button>
-          </form>
+    function search() {
+        const input = document.getElementById("searchInput").value
+        if (!input) return
+        router.push(`/search?input=${input}`)
+    }
+    return (
+        <div className="grid w-full items-center justify-items-center lg:justify-items-start dark:bg-zinc-900 p-4">
+            <div className="flex gap-2">
+                <a className="flex gap-2" href="/">
+                    <Image alt="" src={require('../public/logo.svg')} width={32} height={32} />
+                    <h1 className="hidden lg:block logo text-[24px] self-center">Kaw<span className="text-[#52B02B]">o</span><span className="text-[#FF3E59]">o</span>n</h1>
+                </a>
+                <input placeholder="Пошук" id="searchInput" className="bg-zinc-100 dark:bg-zinc-800 placeholder-zinc-600 dark:placeholder-zinc-400 text-center py-2 px-2 lg:px-[50%] rounded-2xl lg:ml-12" onKeyDown={(key) => {
+                    if (key.key == "Enter") search()
+                }} />
+                <button className="p-2 rounded-2xl bg-zinc-100 dark:bg-zinc-800" onClick={search} >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6 text-zinc-600 dark:text-zinc-400">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </button>
+            </div>
         </div>
-      </div>
-      <HeaderOptions />
-    </header>
-  )
+    )
 }
