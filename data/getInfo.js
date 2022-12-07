@@ -6,12 +6,12 @@ function getLogo(result) {
     }
 }
 function getThumbnail(result) {
-    if (result.pagemap.cse_image?.[0].src) {
+    if (result.pagemap?.cse_image?.[0]?.src) {
         return <Image src={result.pagemap.cse_image[0].src} width={128} height={128} alt="" className="rounded-2xl" />
     }
 }
 function getName(result) {
-    if (result.pagemap.metatags[0]['og:site_name']) {
+    if (result.pagemap?.metatags?.[0]?.['og:site_name']) {
         return <p className="text-black">{result.pagemap.metatags[0]['og:site_name']}</p>
     }
 }

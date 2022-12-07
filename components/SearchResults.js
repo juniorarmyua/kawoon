@@ -1,5 +1,5 @@
 import PaginationButtons from "./PaginationButtons"
-import { getThumbnail, getLogo, getUrl, getDescription, getLink } from "../data/getInfo"
+import { getThumbnail, getLogo, getUrl, getDescription, getLink, getName } from "../data/getInfo"
 
 export default function SearchResults({ results }) {
 
@@ -22,6 +22,7 @@ export default function SearchResults({ results }) {
             {getDescription(result)}
             {getThumbnail(result)}
             {getLogo(result)}
+            {getName(result)}
           </div>
         )
       })}
