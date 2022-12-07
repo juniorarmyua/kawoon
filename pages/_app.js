@@ -4,6 +4,7 @@ import { useEffect } from "react"
 import NProgress from "nprogress"
 import "nprogress/nprogress.css"
 import Head from "next/head"
+import { Analytics } from '@vercel/analytics/react'
 
 NProgress.configure({
   easing: "ease",
@@ -39,6 +40,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="icon" href="logo.svg" />
       </Head>
       <Component {...pageProps} />
+      <Analytics />
     </>
   )
 }

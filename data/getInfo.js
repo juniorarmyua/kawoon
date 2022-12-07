@@ -29,7 +29,7 @@ function getLink(result) {
     if (result.link) {
         return (
             <a href={result.link}>
-                <h2 className="w-[250px] lg:w-[500px] truncate hover:underline">
+                <h2 className="w-[250px] lg:w-[500px] logo truncate hover:underline">
                     {result.title}
                 </h2>
             </a>
