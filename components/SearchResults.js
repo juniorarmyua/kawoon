@@ -6,7 +6,7 @@ export default function SearchResults({ results }) {
         <div>
             {results.items?.map((result) => {
                 return (
-                    <div className="grid gap-2 m-4 bg-zinc-100 dark:bg-zinc-800/25 rounded-3xl p-4 lg:ml-[12.5rem]">
+                    <div className="grid w-max gap-2 m-4 bg-zinc-100 dark:bg-zinc-800/25 rounded-3xl p-4 lg:ml-[12.5rem]">
                         <div>
                             <div className="flex gap-2 items-center">
                                 {getLogo(result)}
